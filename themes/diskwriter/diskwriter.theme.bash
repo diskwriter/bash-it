@@ -15,11 +15,8 @@ git_color='\e[31;1m'
 
 function prompt_command() {
         if [[ ${EUID} == 0 ]]; then
-                PS1="[\t]${yellow}[${red}\u@\h ${green}\w${yellow}]${red}$(__git_ps1 "(%s)")${cyan}\r\n➤${normal} "
+                PS1="${time_color}[\t]${green} ◉ ${user_color}\u ${separator_color}➜ ${directory_color}[\w]${normal}${git_color}$(__git_ps1 " ${yellow}◆ ${git_color}%s ")\r\n${magenta}➤${normal} "
         else
-                #PS1="[\t]${yellow}[${cyan}\u@\h ${green}\w${yellow}]${red}$(__git_ps1 "(%s)")${cyan}\r\n➤${normal} "
-                # ◉
-                # ◆
                 PS1="${time_color}[\t]${green} ◉ ${user_color}\u ${separator_color}➜ ${directory_color}[\w]${normal}${git_color}$(__git_ps1 " ${yellow}◆ ${git_color}%s ")\r\n${red}➤${normal} "
         fi
 }
